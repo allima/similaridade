@@ -1,0 +1,3 @@
+# similaridade
+projeto
+.
