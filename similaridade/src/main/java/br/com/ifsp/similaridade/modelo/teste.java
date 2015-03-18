@@ -35,16 +35,16 @@ public class teste {
 
 	// Exemplo de uso:
 	public static void main(String[] args) {
-		Extensao ex = new Extensao("ini".toLowerCase());
+		Extensao ex = new Extensao("txt".toLowerCase());
 		Extensao ex1 = new Extensao("pdf".toLowerCase());
 		List<Extensao> extensoes = new ArrayList<>();
 		extensoes.add(ex1);
 		extensoes.add(ex);
 		// Bibliotecas\Documentos
-		Pasta p = new Pasta("C:\\", extensoes);
+		Pasta p = new Pasta("C:\\Users\\aluno\\Desktop\\Nova pasta", extensoes);
 		p.obterArquivos();
-		Pasta p1 = new Pasta("C:\\Users\\aluno\\", extensoes);
-		p1.obterArquivos();
+		//Pasta p1 = new Pasta("C:\\Users\\aluno\\", extensoes);
+		//p1.obterArquivos();
 		Pasta p2 = new Pasta("C:\\Users\\aluno\\Pictures", extensoes);
 		p2.obterArquivos();
 
