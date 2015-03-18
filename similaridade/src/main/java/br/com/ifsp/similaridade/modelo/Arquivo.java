@@ -1,30 +1,21 @@
 package br.com.ifsp.similaridade.modelo;
 
-public class Arquivo {
+import java.util.HashMap;
+import java.util.Map;
 
-	private String caminho;
-	private String nome;
+public abstract class Arquivo {
 
-	public Arquivo(String caminho, String nome) {
-		this.caminho = caminho;
-		this.nome = nome;
+private Map<String, Integer>map=new HashMap<>(); 
 
-	}
+public abstract void lerArquivo();
 
-	public String getCaminho() {
-		return caminho;
-	}
+public Map<String, Integer> getMap() {
+	return map;
+}
 
-	public void setCaminho(String caminho) {
-		this.caminho = caminho;
-	}
+public void setMap(Map<String, Integer> map) {
+	this.map = map;
+}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
+	
 }
