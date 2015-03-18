@@ -45,8 +45,8 @@ public class teste {
 		p.obterArquivos();
 		// Pasta p1 = new Pasta("C:\\Users\\aluno\\", extensoes);
 		// p1.obterArquivos();
-		Pasta p2 = new Pasta("C:\\Users\\aluno\\Pictures", extensoes);
-		p2.obterArquivos();
+		//Pasta p2 = new Pasta("C:\\Users\\aluno\\Pictures", extensoes);
+		//p2.obterArquivos();
 
 		while (Pasta.getNumeroThread() > 0) {
 			try {
