@@ -58,18 +58,21 @@ public class Pasta implements Runnable {
 				for (File file : faux) {
 					if (file.isDirectory()) {
 						subpastas.add(file.getAbsolutePath());
-						//System.out.println(file.getAbsolutePath());
+						// System.out.println(file.getAbsolutePath());
 
 					}
 					if (file.isFile()) {
 						if (isExtensao(file)) {
-
 							arquivos.add(file.getPath().toLowerCase());
+
+							Arquivo arq = new ArquivoTxt(file.getPath()
+									.toLowerCase());
+							arq.lerArquivo();
 						} else {
 
 						}
 
-						//System.out.println(file.getAbsolutePath());
+						// System.out.println(file.getAbsolutePath());
 					}
 
 				}
@@ -79,10 +82,10 @@ public class Pasta implements Runnable {
 
 			}
 		}
-		
+
 		for (String ar : arquivos) {
 			System.out.println(ar);
-			
+
 		}
 	}
 

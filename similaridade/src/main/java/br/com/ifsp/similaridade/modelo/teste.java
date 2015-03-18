@@ -58,13 +58,7 @@ public class teste {
 
 		}
 
-		List<String> lista = p.getArquivos();
-
-		for (String string : lista) {
-			ArquivoTxt arqui = new ArquivoTxt(string);
-			arqui.lerArquivo();
-		}
-
+	
 	}
 
 }
