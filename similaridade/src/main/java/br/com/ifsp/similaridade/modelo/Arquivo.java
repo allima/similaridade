@@ -16,6 +16,8 @@ public abstract class Arquivo {
 
 	public abstract void lerArquivo();
 
+	public abstract void PreecheMapa(String[] palavra);
+
 	public Map<String, Integer> getMap() {
 		return map;
 	}
