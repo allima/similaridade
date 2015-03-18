@@ -43,8 +43,8 @@ public class teste {
 		// Bibliotecas\Documentos
 		Pasta p = new Pasta("C:\\Users\\aluno\\Desktop\\Nova pasta", extensoes);
 		p.obterArquivos();
-		//Pasta p1 = new Pasta("C:\\Users\\aluno\\", extensoes);
-		//p1.obterArquivos();
+		// Pasta p1 = new Pasta("C:\\Users\\aluno\\", extensoes);
+		// p1.obterArquivos();
 		Pasta p2 = new Pasta("C:\\Users\\aluno\\Pictures", extensoes);
 		p2.obterArquivos();
 
@@ -57,8 +57,14 @@ public class teste {
 			}
 
 		}
-		
-		
+
+		List<String> lista = p.getArquivos();
+
+		for (String string : lista) {
+			ArquivoTxt arqui = new ArquivoTxt(string);
+			arqui.lerArquivo();
+		}
+
 	}
 
 }

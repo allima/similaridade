@@ -8,14 +8,15 @@ public class ArquivoTxt extends Arquivo {
 
 	public ArquivoTxt(String caminho) {
 		super(caminho);
+		System.out.println("txt");
 
 	}
 
 	@Override
 	public void lerArquivo() {
-
+		System.out.println("teste");
 		try {
-			FileReader arq = new FileReader(getCaminho());
+			FileReader arq = new FileReader(this.getCaminho());
 			BufferedReader lerArq = new BufferedReader(arq);
 
 			String linha = lerArq.readLine(); // lê a primeira linha

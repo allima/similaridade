@@ -110,4 +110,12 @@ public class Pasta implements Runnable {
 		Pasta.numeroThread = numeroThread;
 	}
 
+	public List<String> getArquivos() {
+		return arquivos;
+	}
+
+	public void setArquivos(List<String> arquivos) {
+		this.arquivos = arquivos;
+	}
+
 }
