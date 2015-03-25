@@ -9,11 +9,11 @@ public class Pasta implements Runnable {
 	private String caminho;
 	private static int numeroThread;
 	private Thread threadPasta;
-	private List<String> arquivos;
+	private List<Arquivo> arquivos;
 	private List<Extensao> extensoes;
 
 	public Pasta(String caminho, List<Extensao> extensoes) {
-		this.arquivos = new ArrayList<>();
+		this.arquivos = new ArrayList<Arquivo>();
 		this.caminho = caminho;
 		this.extensoes = extensoes;
 		Pasta.numeroThread++;
@@ -63,7 +63,7 @@ public class Pasta implements Runnable {
 					}
 					if (file.isFile()) {
 						if (isExtensao(file)) {
-							arquivos.add(file.getPath().toLowerCase());
+							// arquivos.add(file.getPath().toLowerCase());
 
 							Arquivo arq = new ArquivoFactory().getArquivo(
 									file.getName()
@@ -88,7 +88,7 @@ public class Pasta implements Runnable {
 			}
 		}
 
-		for (String ar : arquivos) {
+		for (Arquivo ar : arquivos) {
 			System.out.println(ar);
 
 		}
@@ -118,11 +118,11 @@ public class Pasta implements Runnable {
 		Pasta.numeroThread = numeroThread;
 	}
 
-	public List<String> getArquivos() {
+	public List<Arquivo> getArquivos() {
 		return arquivos;
 	}
 
-	public void setArquivos(List<String> arquivos) {
+	public void setArquivos(List<Arquivo> arquivos) {
 		this.arquivos = arquivos;
 	}
 
