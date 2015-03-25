@@ -5,6 +5,12 @@ public class Banana {
 	private String tipo;
 	private double preco;
 
+	public Banana(String tipo, double preco) {
+		super();
+		this.tipo = tipo;
+		this.preco = preco;
+	}
+
 	public String getTipo() {
 		return tipo;
 	}
