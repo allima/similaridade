@@ -121,4 +121,29 @@ public class Pasta implements Runnable {
 		this.arquivos = arquivos;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((caminho == null) ? 0 : caminho.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (this.getClass() != obj.getClass())
+			return false;
+		Pasta other = (Pasta) obj;
+		if (caminho == null) {
+			if (other.caminho != null)
+				return false;
+		} else if (!caminho.equals(other.caminho))
+			return false;
+		return true;
+	}
+
 }
