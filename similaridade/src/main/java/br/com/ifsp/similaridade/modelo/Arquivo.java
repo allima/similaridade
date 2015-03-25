@@ -5,7 +5,7 @@ import java.util.Map;
 
 public abstract class Arquivo {
 
-	private Map<String, Integer> map = new HashMap<>();
+	private Map<String, Integer> mapa = new HashMap<>();
 	private String nome;
 	private String caminho;
 
@@ -18,12 +18,12 @@ public abstract class Arquivo {
 
 	public abstract void PreecheMapa(String[] palavra);
 
-	public Map<String, Integer> getMap() {
-		return map;
+	public Map<String, Integer> getMapa() {
+		return mapa;
 	}
 
-	public void setMap(Map<String, Integer> map) {
-		this.map = map;
+	public void setMapa(Map<String, Integer> mapa) {
+		this.mapa = mapa;
 	}
 
 	public String getNome() {
