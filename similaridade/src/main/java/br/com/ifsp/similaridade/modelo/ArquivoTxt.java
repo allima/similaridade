@@ -26,7 +26,7 @@ public class ArquivoTxt extends Arquivo {
 
 			while (linha != null) {
 				linha = Normalizer.normalize(linha, Normalizer.Form.NFD);
-				linha = linha.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+				linha = linha.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
 				// System.out.println(linha);
 				Pattern p = Pattern.compile("(\\d+)|([a-z]+)");
 				Matcher m = p.matcher(linha);
