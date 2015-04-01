@@ -13,81 +13,79 @@ import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 public class ArquivoDoc extends Arquivo {
- 	
- 	public ArquivoDoc(String arquivo){
- 		super(arquivo);
- 	}
 
- 	@Override
- 	public void lerArquivo() {
- 		try{
-	 		if(this.getCaminho().endsWith("docx")){
- 				XWPFDocument fileDocx = new XWPFDocument(new FileInputStream(this.getCaminho()));  
-		 		XWPFWordExtractor arqWordx = new XWPFWordExtractor(fileDocx);  
-		 	    String wordxText = arqWordx.getText(); 
-		 	    		 	    
-				wordxText = Normalizer.normalize(wordxText, Normalizer.Form.NFD);
-				wordxText = wordxText.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase(); 
-				Pattern p = Pattern.compile("(\\d+)|([a-z]+)"); 
-				Matcher m = p.matcher(wordxText);
-				
-				while(m.find()) { 
-					String token = m.group();
-					Integer freq = getMapa().get(token);
-					if (freq != null) { 
-						getMapa().put(token, freq+1);
-					} else { 
-						getMapa().put(token,1); 
-					} 
-				} 
-				 
-		 	    
-				for (Entry<String, Integer> entry : getMapa().entrySet()) {
-					System.out.println(entry.getKey()); 
-					System.out.println("--> freq=" + entry.getValue() + "\n");
+	public ArquivoDoc(String arquivo) {
+		super(arquivo);
+	}
+
+	@Override
+	public void lerArquivo() {
+		try {
+			/*
+			 * if(this.getCaminho().endsWith("docx")){ XWPFDocument fileDocx =
+			 * new XWPFDocument(new FileInputStream(this.getCaminho()));
+			 * XWPFWordExtractor arqWordx = new XWPFWordExtractor(fileDocx);
+			 * String wordxText = arqWordx.getText();
+			 * 
+			 * wordxText = Normalizer.normalize(wordxText, Normalizer.Form.NFD);
+			 * wordxText = wordxText.replaceAll("[^a-zA-Z0-9 ]",
+			 * "").toLowerCase(); Pattern p =
+			 * Pattern.compile("(\\d+)|([a-z]+)"); Matcher m =
+			 * p.matcher(wordxText);
+			 * 
+			 * while(m.find()) { String token = m.group(); Integer freq =
+			 * getMapa().get(token); if (freq != null) { getMapa().put(token,
+			 * freq+1); } else { getMapa().put(token,1); } }
+			 * 
+			 * 
+			 * for (Entry<String, Integer> entry : getMapa().entrySet()) {
+			 * System.out.println(entry.getKey());
+			 * System.out.println("--> freq=" + entry.getValue() + "\n"); }
+			 * 
+			 * //System.out.println(wordxText);
+			 * 
+			 * arqWordx.close();
+			 */
+
+			// }else if(this.getCaminho().endsWith("doc")){
+			POIFSFileSystem fileDoc = new POIFSFileSystem(new FileInputStream(
+					this.getCaminho()));
+			WordExtractor arqWord = new WordExtractor(fileDoc);
+			String wordText = arqWord.getText();
+
+			wordText = Normalizer.normalize(wordText, Normalizer.Form.NFD);
+			wordText = wordText.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
+			Pattern p = Pattern.compile("(\\d+)|([a-z]+)");
+			Matcher m = p.matcher(wordText);
+
+			while (m.find()) {
+				String token = m.group();
+				Integer freq = getMapa().get(token);
+				if (freq != null) {
+					getMapa().put(token, freq + 1);
+				} else {
+					getMapa().put(token, 1);
 				}
-		 	    
-		 	    //System.out.println(wordxText);
-		 	    
-		 	    arqWordx.close();		 	    
-	 		}else if(this.getCaminho().endsWith("doc")){
-	 			POIFSFileSystem fileDoc = new POIFSFileSystem(new FileInputStream(this.getCaminho()));  
-	 		    WordExtractor arqWord = new WordExtractor(fileDoc);  
-	 		    String wordText = arqWord.getText();  
-	 		    
-	 		    wordText = Normalizer.normalize(wordText, Normalizer.Form.NFD);
-				wordText = wordText.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase(); 
-				Pattern p = Pattern.compile("(\\d+)|([a-z]+)"); 
-				Matcher m = p.matcher(wordText);
-				
-				while(m.find()) { 
-					String token = m.group();
-					Integer freq = getMapa().get(token);
-					if (freq != null) { 
-						getMapa().put(token, freq+1);
-					} else { 
-						getMapa().put(token,1); 
-					} 
-				} 
-				 
-		 	    
-				for (Entry<String, Integer> entry : getMapa().entrySet()) {
-					System.out.println(entry.getKey()); 
-					System.out.println("--> freq=" + entry.getValue() + "\n");
-				}
-	 		    
-	 		   	//System.out.println(wordText);
-	 		   
-	 		   	arqWord.close();
-	 	    }
-	 	}catch (IOException e) { 
-			System.err.println("Erro na abertura do arquivo: " + e.getMessage()); 
+			}
+
+			for (Entry<String, Integer> entry : getMapa().entrySet()) {
+				System.out.println(entry.getKey());
+				System.out.println("--> freq=" + entry.getValue() + "\n");
+			}
+
+			// System.out.println(wordText);
+
+			arqWord.close();
+			// }
+		} catch (IOException e) {
+			System.err
+					.println("Erro na abertura do arquivo: " + e.getMessage());
 		}
- 	}
+	}
 
 	@Override
 	public void PreecheMapa(String[] palavra) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

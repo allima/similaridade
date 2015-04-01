@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 public class ArquivoDocx extends Arquivo {
 
@@ -20,42 +22,34 @@ public class ArquivoDocx extends Arquivo {
 	@Override
 	public void lerArquivo() {
 		try {
-			// são doc não docx
-			POIFSFileSystem poifs = new POIFSFileSystem(new FileInputStream(
+			XWPFDocument fileDocx = new XWPFDocument(new FileInputStream(
 					this.getCaminho()));
-			WordExtractor extractor = new WordExtractor(poifs);
-			String wordText = extractor.getText();
+			XWPFWordExtractor arqWordx = new XWPFWordExtractor(fileDocx);
+			String wordxText = arqWordx.getText();
 
-			// BufferedReader lerArq = new BufferedReader(new InputStreamReader(
-			// new FileInputStream(this.getCaminho()), "UTF-8"));
-			// String linha = lerArq.readLine();
-
-			// while (linha != null) {
-			wordText = Normalizer.normalize(wordText, Normalizer.Form.NFD);
-			wordText = wordText.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
-			// System.out.println(linha);
+			wordxText = Normalizer.normalize(wordxText, Normalizer.Form.NFD);
+			wordxText = wordxText.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
 			Pattern p = Pattern.compile("(\\d+)|([a-z]+)");
-			Matcher m = p.matcher(wordText);
+			Matcher m = p.matcher(wordxText);
 
 			while (m.find()) {
-				String palavra = m.group();
-				Integer freq = getMapa().get(palavra);
+				String token = m.group();
+				Integer freq = getMapa().get(token);
 				if (freq != null) {
-					getMapa().put(palavra, freq + 1);
+					getMapa().put(token, freq + 1);
 				} else {
-					getMapa().put(palavra, 1);
+					getMapa().put(token, 1);
 				}
 			}
 
-			// linha = lerArq.readLine();
-			// }
 			for (Entry<String, Integer> entry : getMapa().entrySet()) {
 				System.out.println(entry.getKey());
 				System.out.println("--> freq=" + entry.getValue() + "\n");
 			}
 
-			// lerArq.close();
-			// arq.close();
+			// System.out.println(wordxText);
+
+			arqWordx.close();
 		} catch (IOException e) {
 			System.err
 					.println("Erro na abertura do arquivo: " + e.getMessage());

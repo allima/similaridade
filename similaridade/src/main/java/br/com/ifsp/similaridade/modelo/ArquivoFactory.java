@@ -15,6 +15,9 @@ public class ArquivoFactory {
 
 		} else if (ArquivoType.equalsIgnoreCase("pdf")) {
 			return new ArquivoPdf(caminho);
+
+		} else if (ArquivoType.equalsIgnoreCase("docx")) {
+			return new ArquivoPdf(caminho);
 		}
 
 		return null;
