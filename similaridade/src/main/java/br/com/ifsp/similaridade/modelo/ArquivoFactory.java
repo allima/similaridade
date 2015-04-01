@@ -18,6 +18,12 @@ public class ArquivoFactory {
 
 		} else if (ArquivoType.equalsIgnoreCase("docx")) {
 			return new ArquivoDocx(caminho);
+
+		} else if (ArquivoType.equalsIgnoreCase("ppt")) {
+			return new ArquivoPowerPoint(caminho);
+
+		} else if (ArquivoType.equalsIgnoreCase("exl")) {
+			return new ArquivoExcel(caminho);
 		}
 
 		return null;
