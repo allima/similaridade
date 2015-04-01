@@ -11,7 +11,7 @@ public class ArquivoFactory {
 			return new ArquivoTxt(caminho);
 
 		} else if (ArquivoType.equalsIgnoreCase("doc")) {
-			return new ArquivoDoc(caminho);
+			return new ArquivoDocx(caminho);
 
 		} else if (ArquivoType.equalsIgnoreCase("pdf")) {
 			return new ArquivoPdf(caminho);
