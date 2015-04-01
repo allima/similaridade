@@ -14,7 +14,7 @@ public class ArquivoDocx extends Arquivo {
 
 	public ArquivoDocx(String caminho) {
 		super(caminho);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
