@@ -56,6 +56,7 @@ public class Pasta implements Runnable {
 				File[] faux = f.listFiles();
 
 				for (File file : faux) {
+					
 					if (file.isDirectory()) {
 						subpastas.add(file.getAbsolutePath());
 						// System.out.println(file.getAbsolutePath());

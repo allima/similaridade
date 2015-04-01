@@ -2,7 +2,7 @@ package br.com.ifsp.similaridade.modelo;
 
 public class ArquivoFactory {
 
-	// use getShape method to get object of type shape
+	// use getArquivo method to get object of type shape
 	public Arquivo getArquivo(String ArquivoType, String caminho) {
 		if (ArquivoType == null) {
 			return null;

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Arquivo {
-
+				//key   //value
 	private Map<String, Integer> mapa = new HashMap<>();
 	private String nome;
 	private String caminho;
