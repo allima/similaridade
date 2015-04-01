@@ -65,14 +65,15 @@ public class Pasta implements Runnable {
 						if (isExtensao(file)) {
 							// arquivos.add(file.getPath().toLowerCase());
 
-							Arquivo arq = new ArquivoFactory().getArquivo(
+							arquivos.add(new ArquivoFactory().getArquivo(
 									file.getName()
 											.substring(
 													file.getName().lastIndexOf(
 															".") + 1)
 											.toLowerCase(), file.getPath()
-											.toLowerCase());
-							arq.lerArquivo();
+											.toLowerCase()));
+						//	arq.lerArquivo();
+
 						} else {
 
 						}

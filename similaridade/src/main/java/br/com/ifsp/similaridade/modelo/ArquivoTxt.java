@@ -13,8 +13,7 @@ public class ArquivoTxt extends Arquivo {
 
 	public ArquivoTxt(String caminho) {
 		super(caminho);
-		// System.out.println("txt");
-
+		lerArquivo();
 	}
 
 	@Override

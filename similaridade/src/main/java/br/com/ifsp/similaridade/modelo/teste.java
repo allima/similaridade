@@ -36,12 +36,12 @@ public class teste {
 	// Exemplo de uso:
 	public static void main(String[] args) {
 		Extensao ex = new Extensao("txt".toLowerCase());
-		//Extensao ex1 = new Extensao("pdf".toLowerCase());
+		Extensao ex1 = new Extensao("pdf".toLowerCase());
 		Extensao ex2 = new Extensao("doc".toLowerCase());
 		Extensao ex3 = new Extensao("docx".toLowerCase());
 		List<Extensao> extensoes = new ArrayList<>();
 		extensoes.add(ex);
-		//extensoes.add(ex1);
+		extensoes.add(ex1);
 		extensoes.add(ex2);
 		extensoes.add(ex3);
 

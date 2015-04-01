@@ -14,6 +14,7 @@ public class ArquivoDocx extends Arquivo {
 
 	public ArquivoDocx(String caminho) {
 		super(caminho);
+		lerArquivo();
 
 	}
 

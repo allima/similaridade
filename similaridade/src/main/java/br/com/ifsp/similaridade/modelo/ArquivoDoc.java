@@ -14,6 +14,7 @@ public class ArquivoDoc extends Arquivo {
 
 	public ArquivoDoc(String arquivo) {
 		super(arquivo);
+		lerArquivo();
 	}
 
 	@Override
