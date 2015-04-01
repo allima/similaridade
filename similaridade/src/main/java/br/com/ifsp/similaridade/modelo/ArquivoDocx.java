@@ -7,8 +7,6 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.poi.hwpf.extractor.WordExtractor;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
