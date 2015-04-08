@@ -13,7 +13,7 @@ public class ArquivoPdf extends Arquivo {
 	
 	public ArquivoPdf(String arquivo){
 		super(arquivo);
-		lerArquivo();
+		
 	}
 	
 	@Override

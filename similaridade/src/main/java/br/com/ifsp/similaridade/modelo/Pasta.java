@@ -36,12 +36,13 @@ public class Pasta implements Runnable {
 
 	}
 
-	public void obterArquivos() {
+	public List<Arquivo> obterArquivos() {
 
 		this.threadPasta = new Thread(this);
 		this.threadPasta.start();
 
 		Pasta.numeroThread--;
+		return arquivos;
 	}
 
 	@Override
@@ -56,7 +57,7 @@ public class Pasta implements Runnable {
 				File[] faux = f.listFiles();
 
 				for (File file : faux) {
-					
+
 					if (file.isDirectory()) {
 						subpastas.add(file.getAbsolutePath());
 						// System.out.println(file.getAbsolutePath());
@@ -64,7 +65,6 @@ public class Pasta implements Runnable {
 					}
 					if (file.isFile()) {
 						if (isExtensao(file)) {
-							// arquivos.add(file.getPath().toLowerCase());
 
 							arquivos.add(new ArquivoFactory().getArquivo(
 									file.getName()
@@ -73,7 +73,6 @@ public class Pasta implements Runnable {
 															".") + 1)
 											.toLowerCase(), file.getPath()
 											.toLowerCase()));
-						//	arq.lerArquivo();
 
 						} else {
 

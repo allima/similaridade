@@ -14,7 +14,7 @@ public class ArquivoPowerPoint extends Arquivo {
 
 	public ArquivoPowerPoint(String arquivo) {
 		super(arquivo);
-		lerArquivo();
+		
 	}
 
 	@Override

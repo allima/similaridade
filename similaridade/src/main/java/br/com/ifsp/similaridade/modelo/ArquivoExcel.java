@@ -14,7 +14,7 @@ public class ArquivoExcel extends Arquivo {
 
 	public ArquivoExcel(String arquivo) {
 		super(arquivo);
-		lerArquivo();
+		
 	}
 
 	@Override

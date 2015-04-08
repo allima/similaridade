@@ -13,7 +13,7 @@ public class ArquivoTxt extends Arquivo {
 
 	public ArquivoTxt(String caminho) {
 		super(caminho);
-		lerArquivo();
+		
 	}
 
 	@Override
