@@ -16,7 +16,10 @@ public class Teste {
 		extensoes.add(ex2);
 		extensoes.add(ex3);
 
-		Pasta p = new Pasta("C:\\Users\\aluno\\Desktop\\Nova pasta", extensoes);
+		Pasta p = new Pasta("C:\\Users\\aluno\\Desktop\\Nova pasta\\",
+				extensoes);
+
+		//
 		p.obterArquivos();
 
 		while (Pasta.getNumeroThread() > 0) {
@@ -26,6 +29,15 @@ public class Teste {
 
 				e.printStackTrace();
 			}
+
+		}
+
+		List<Arquivo> listArquivos = p.getListaArquivos();
+
+		for (Arquivo arquivo : listArquivos) {
+
+			arquivo.lerArquivo();
+			arquivo.toString();
 
 		}
 

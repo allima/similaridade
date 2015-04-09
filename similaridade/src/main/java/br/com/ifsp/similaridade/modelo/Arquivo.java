@@ -8,10 +8,12 @@ public abstract class Arquivo {
 	private Map<String, Integer> mapa = new HashMap<>();
 	private String nome;
 	private String caminho;
+	private String extencao;
 
 	public Arquivo(String caminho) {
 
 		this.caminho = caminho;
+		
 	}
 
 	public abstract void lerArquivo();
@@ -40,6 +42,14 @@ public abstract class Arquivo {
 
 	public void setCaminho(String caminho) {
 		this.caminho = caminho;
+	}
+
+	public String getExtencao() {
+		return extencao;
+	}
+
+	public void setExtencao(String extencao) {
+		this.extencao = extencao;
 	}
 
 }

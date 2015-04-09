@@ -36,13 +36,13 @@ public class Pasta implements Runnable {
 
 	}
 
-	public List<Arquivo> obterArquivos() {
+	public void obterArquivos() {
 
 		this.threadPasta = new Thread(this);
 		this.threadPasta.start();
 
 		Pasta.numeroThread--;
-		return arquivos;
+
 	}
 
 	@Override
@@ -150,6 +150,11 @@ public class Pasta implements Runnable {
 		} else if (!caminho.equals(other.caminho))
 			return false;
 		return true;
+	}
+
+	public List<Arquivo> getListaArquivos() {
+
+		return arquivos;
 	}
 
 }
