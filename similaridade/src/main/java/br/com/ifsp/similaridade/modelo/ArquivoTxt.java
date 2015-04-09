@@ -14,11 +14,13 @@ public class ArquivoTxt extends Arquivo {
 	public ArquivoTxt(String caminho) {
 		super(caminho);
 		//lerArquivo();
-		
+		System.out.println("construtor txt");			
 	}
 
 	@Override
 	public void lerArquivo() {
+		System.out.println("sdfs");
+	
 		try {
 			BufferedReader lerArq = new BufferedReader(new InputStreamReader(
 					new FileInputStream(this.getCaminho()), "UTF-8"));
@@ -45,6 +47,7 @@ public class ArquivoTxt extends Arquivo {
 			}
 			for (Entry<String, Integer> entry : getMapa().entrySet()) {
 				System.out.println(entry.getKey());
+				
 				System.out.println("--> freq=" + entry.getValue() + "\n");
 			}
 

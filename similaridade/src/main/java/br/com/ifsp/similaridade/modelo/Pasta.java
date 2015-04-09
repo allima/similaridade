@@ -41,8 +41,6 @@ public class Pasta implements Runnable {
 		this.threadPasta = new Thread(this);
 		this.threadPasta.start();
 
-		Pasta.numeroThread--;
-
 	}
 
 	@Override
@@ -60,19 +58,20 @@ public class Pasta implements Runnable {
 
 					if (file.isDirectory()) {
 						subpastas.add(file.getAbsolutePath());
-						// System.out.println(file.getAbsolutePath());
+						
 
 					}
 					if (file.isFile()) {
 						if (isExtensao(file)) {
-
-							arquivos.add(new ArquivoFactory().getArquivo(
+							Arquivo a = ArquivoFactory.getArquivo(
 									file.getName()
 											.substring(
 													file.getName().lastIndexOf(
 															".") + 1)
 											.toLowerCase(), file.getPath()
-											.toLowerCase()));
+											.toLowerCase());
+							// a.lerArquivo();
+							arquivos.add(a);
 
 						} else {
 
@@ -89,10 +88,7 @@ public class Pasta implements Runnable {
 			}
 		}
 
-		for (Arquivo ar : arquivos) {
-			System.out.println(ar);
-
-		}
+		Pasta.numeroThread--;
 	}
 
 	public List<Extensao> getExtensoes() {

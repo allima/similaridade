@@ -34,10 +34,10 @@ public class Teste {
 
 		List<Arquivo> listArquivos = p.getListaArquivos();
 
+		
 		for (Arquivo arquivo : listArquivos) {
 
 			arquivo.lerArquivo();
-			arquivo.toString();
 
 		}
 
