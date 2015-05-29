@@ -7,12 +7,15 @@ import java.util.Set;
 public class MapaGeral {
 
 	private Map<String, Integer> mapageral = new HashMap<>();
-
+//http://introcs.cs.princeton.edu/java/home/
 	public void IDF(int numeroAquivos) {
-		Set<String> keys = mapageral.keySet();
-		for (String key : keys) {
-			Integer freq = mapageral.get(key);
-			System.out.println("" + Math.log(numeroAquivos / freq));
+		// Set<String> keys = this.mapageral.keySet();
+		for (String key : this.mapageral.keySet()) {
+			Integer freq = this.mapageral.get(key);
+			System.out.println("palavras = " + key + " n = "
+					+ this.mapageral.get(key) + " numero IDF ="
+					+ Math.log(numeroAquivos / freq));
+			System.out.println(numeroAquivos);
 		}
 	}
 
@@ -21,11 +24,11 @@ public class MapaGeral {
 		Set<String> keys = mapa.keySet();
 		for (String key : keys) {
 			// mapageral.get(key);
-			Integer freq = mapageral.get(key);
+			Integer freq = this.mapageral.get(key);
 			if (freq != null) {
-				mapageral.put(key, freq + 1);
+				this.mapageral.put(key, freq + 1);
 			} else {
-				mapageral.put(key, 1);
+				this.mapageral.put(key, 1);
 			}
 			// System.out.println("Key: " + key);
 		}
