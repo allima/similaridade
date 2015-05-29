@@ -1,7 +1,9 @@
 package br.com.ifsp.similaridade.modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class Teste {
 
@@ -15,6 +17,7 @@ public class Teste {
 		extensoes.add(ex1);
 		extensoes.add(ex2);
 		extensoes.add(ex3);
+		MapaGeral mgeral = new MapaGeral();
 
 		Pasta p = new Pasta("C:\\Users\\aluno\\Desktop\\Nova pasta\\",
 				extensoes);
@@ -34,11 +37,24 @@ public class Teste {
 
 		List<Arquivo> listArquivos = p.getListaArquivos();
 
-		
 		for (Arquivo arquivo : listArquivos) {
 
 			arquivo.lerArquivo();
 
+		}
+
+		for (Arquivo arquivo : listArquivos) {
+
+			mgeral.Lermapas(arquivo.getMapa());
+
+		}
+		
+		
+		Set<String> keys = mgeral.getMapageral().keySet();
+		for (final String key : keys) {
+			//System.out.println("Key: " + key);
+			Integer value = mgeral.getMapageral().get(key);
+			System.out.println(key + " = " + value);
 		}
 
 	}
