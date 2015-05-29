@@ -47,14 +47,15 @@ public class Teste {
 			mgeral.Lermapas(arquivo.getMapa());
 
 		}
-		
-		
-		Set<String> keys = mgeral.getMapageral().keySet();
-		for (final String key : keys) {
-			//System.out.println("Key: " + key);
-			Integer value = mgeral.getMapageral().get(key);
-			System.out.println(key + " = " + value);
-		}
+
+		mgeral.IDF(listArquivos.size());
+
+//		Set<String> keys = mgeral.getMapageral().keySet();
+//		for (final String key : keys) {
+//			// System.out.println("Key: " + key);
+//			Integer value = mgeral.getMapageral().get(key);
+//			System.out.println(key + " = " + value);
+//		}
 
 	}
 

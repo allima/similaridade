@@ -8,6 +8,14 @@ public class MapaGeral {
 
 	private Map<String, Integer> mapageral = new HashMap<>();
 
+	public void IDF(int numeroAquivos) {
+		Set<String> keys = mapageral.keySet();
+		for (String key : keys) {
+			Integer freq = mapageral.get(key);
+			System.out.println("" + Math.log(numeroAquivos / freq));
+		}
+	}
+
 	public void Lermapas(Map<String, Integer> mapa) {
 
 		Set<String> keys = mapa.keySet();
