@@ -34,7 +34,8 @@ public class Teste {
 
 		}
 
-		List<Arquivo> listArquivos = p.getListaArquivos();
+		List<Arquivo> listArquivos = p.getListaArquivos();		
+		
 
 		for (Arquivo arquivo : listArquivos) {
 
