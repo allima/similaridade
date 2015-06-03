@@ -8,6 +8,7 @@ public class MapaGeral {
 
 	private Map<String, Integer> mapageral = new HashMap<>();
 //http://introcs.cs.princeton.edu/java/home/
+	
 	public void IDF(int numeroAquivos) {
 		// Set<String> keys = this.mapageral.keySet();
 		for (String key : this.mapageral.keySet()) {
